@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MusicPlayer</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/settingsBar.css">
+    <link rel="stylesheet" href="css/listBar.css">
+    <link rel="stylesheet" href="css/controlBar.css">
+</head>
+<body>
+    <!-- 播放器主体区域 -->
+    <div id="player">
+        <!-- 设置栏，处于上边 -->
+        <div class="SettingsBar">
+            <img src="img/logo.png" id="logo">
+            <!-- 搜索歌曲 -->
+            <div class="searchBar">
+                <input type="text" autocomplete="off" v-model="keywords" @keyup.enter="searchMusic" />
+                <img src="img/search.png" @click="searchMusic">
+            </div>
+        </div>
+
+        <!-- 列表栏，处于中间 -->
+        <div class="ListBar">
+            <!-- 歌曲列表 -->
+            <div class="songList">
+                <div class="song">歌曲</div>
+                <div class="songArtist">歌手</div>
+                <div class="songTime">时长</div>
+                <div class="line" id="dline1"></div>
+                <ul v-if="isChange">
+                    <li v-for="(item,index) in musicList"  @click="playMusicOnline(index+1)">
+                        <div class="number">{{index+1}}</div>
+                        <div class="name">{{item.name}}</div>
+                        <div class="artist">{{item.artists}}</div>
+                        <div class="time">{{item.duration}}</div>
+                        <div class="line" id="dline2"></div>
+                    </li>
+                </ul>
+                <ul v-else>
+                    <li v-for="(item,index) in musicList" @click="playMusicLocal(index+1)">
+                        <div class="number">{{index+1}}</div>
+                        <div class="name" >{{item.name}}</div>
+                        <div class="artist">{{item.artists}}</div>
+                        <div class="time">{{item.duration}}</div>
+                        <div class="line" id="dline3"></div>
+                    </li>
+                </ul>
+            </div>
+
+
+            <div class="songExtra">
+                <!-- 黑胶唱片 -->
+                <div class="vinylRecord">
+                    <div :class="{rotate:isPlaying}">
+                        <img src="img/stylus.png" id="stylus"/>
+                        <img src="img/lp.png" id="lp"/>
+                        <img :src="music.cover" id="cover"/>
+                    </div>
+                </div>
+                <div id="lyrics">
+                    <ul>
+                        <li v-for="item in music.lyrics" >
+                            <div>{{ item.lyric }}</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- 控制栏，处于上面 -->
+        <div class="ControlBar">
+            <!-- 浏览器原生播放器 -->
+            <audio id="audio" :src="music.url" autoplay></audio>
+
+            <!-- 音乐播放器 -->
+            <!-- 控制器 -->
+            <div class="controller">
+                <!-- 上一首 -->
+                <img src="img/prev_2x.png" id="prev" @click="skipPrev">
+                <!-- 播放与暂停 -->
+                <img src="img/pause_2x.png" id="play" @click="play">
+                <!-- 下一首 -->
+                <img src="img/next_2x.png" id="next" @click="skipNext">
+            </div>
+
+            <!-- 进度条 -->
+            <div class="progressBar">
+                <div id="roundB"></div>
+                <!-- 当前长度 -->
+                <div id="currentB" @click="clickProgressBar"></div>
+                <!-- 缓存长度 -->
+                <div id="cacheB" @click="clickProgressBar"></div>
+                <!-- 总长度 -->
+                <div id="totalB" @click="clickProgressBar"></div>
+            </div>
+
+            <!-- 歌曲播放信息，在进度条上方-->
+            <div class="information">
+                <div id="songNS"></div>
+                <div id="timeCT">00:00/00:00</div>
+            </div>
+
+            <!-- 音量调节 -->
+            <div class="volume">
+                <img src="img/vol.png" @click="setVolumeMute">
+                <div id="roundV" @mousemove="solidVolume"></div>
+                <!-- 当前歌曲音量 -->
+                <div id="currentV" @click="clickVolume"></div>
+                <!-- 音量100% -->
+                <div id="totalV" @click="clickVolume"></div>
+            </div>
+
+            <!-- 歌词开关 -->
+            <div class="switch" @click="clickLycSwitch">
+                <div id="frame"> </div>
+                <div id="word">词</div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script src="extra/vue.js"></script>
+    <!-- 官网提供的 axios 在线地址 -->
+    <script src="extra/axios.js"></script>
+    <script src="js/control.js"></script>
+
+</body>
+</html>

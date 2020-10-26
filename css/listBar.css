@@ -1,0 +1,200 @@
+.ListBar {
+    height: 544px;
+    background-image: url(../img/background.jpg);
+    background-color: rgba(255, 255, 255, 0.5);
+    display: flex;
+    position: relative;
+}
+
+
+
+
+/*列表栏歌曲列表*/
+.songList {
+    width: 966px;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-width: none; /* firefox */
+    -ms-overflow-style: none; /* IE 10+ */
+}
+
+.songList::-webkit-scrollbar {
+    display: none; /* Chrome Safari */
+}
+
+.line{
+    height: 1px;
+    width: 966px;
+    background-color: rgba(255,255,255,0.1);
+}
+
+.song{
+    margin-top: 20px;
+    color:#FFFFFF;
+    position: absolute;
+    left: 60px;
+}
+
+.songArtist{
+    margin-top: 20px;
+    color:#FFFFFF;
+    position: absolute;
+    left: 620px;
+}
+
+.songTime{
+    margin-top: 20px;
+    color:#FFFFFF;
+    position: absolute;
+    left: 880px;
+}
+
+#dline1{
+    position: absolute;
+    top: 60px;
+}
+
+.songList ul{
+    margin-top: 60px;
+}
+.songList li{
+    color: rgba(255,255,255,0.5);
+    list-style:none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+li .number{
+    position: absolute;
+    left: 26px;
+}
+
+li .name{
+    position: absolute;
+    left: 60px;
+}
+
+li .artist{
+    position: absolute;
+    left: 620px;
+}
+
+li .time{
+    position: absolute;
+    left: 880px;
+}
+
+#dline2{
+    margin-top: 60px;
+    margin-left: -40px;
+}
+
+#dline3{
+    margin-top: 60px;
+    margin-left: -40px;
+}
+
+
+
+
+/*列表栏黑胶唱片*/
+.songExtra {
+    width: 400px;
+    height: 100%;
+    position: absolute;
+    right: 0px;
+}
+
+#stylus {
+    position: absolute;
+    left: 200px;
+    top: -10px;
+    z-index: 3;
+    transform: rotate(-25deg);
+    transform-origin: 12px 12px;
+    transition: 1s;
+}
+
+#lp{
+    position: absolute;
+    left: 78px;
+    top: 60px;
+    z-index: 2;
+    animation-name: Rotate;
+    animation-iteration-count: infinite;
+    animation-play-state: paused;
+    animation-timing-function: linear;
+    animation-duration: 5s;
+}
+
+#cover {
+    position: absolute;
+    left: 132px;
+    top: 112px;
+    width: 150px;
+    height: 150px;
+    border-radius: 75px;
+    z-index: 1;
+    animation-name: Rotate;
+    animation-iteration-count: infinite;
+    animation-play-state: paused;
+    animation-timing-function: linear;
+    animation-duration: 5s;
+}
+
+@keyframes Rotate {
+    from {
+        transform: rotateZ(0);
+    }
+    to {
+        transform: rotateZ(360deg);
+    }
+}
+
+.rotate #stylus{
+    transform: rotate(0);
+}
+
+.rotate #lp,
+.rotate #cover{
+    animation-play-state: running;
+}
+
+/*歌词*/
+#lyrics{
+    padding-left: 0px;
+    height: 174px;
+    width: 400px;
+    position: absolute;
+    top: 340px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-width: none; /* firefox */
+    -ms-overflow-style: none; /* IE 10+ */
+}
+
+#lyrics::-webkit-scrollbar {
+    display: none; /* Chrome Safari */
+}
+
+#lyrics ul{
+    padding-left: 0px;
+    width: 400px;
+    position: absolute;
+    top: 64px;
+    font-size: 14px;
+    text-align: center;
+}
+
+#lyrics li{
+    color: rgba(255,255,255,0.7);
+    list-style:none;
+    margin: 0px auto;
+}
+

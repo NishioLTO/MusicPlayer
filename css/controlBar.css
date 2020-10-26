@@ -1,0 +1,176 @@
+.ControlBar {
+    height: 60px;
+    background-color: #1eacda;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+
+
+
+/*控制栏控制器*/
+.controller{
+    width: 200px;
+    height: 60px;
+    margin-left: 23px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 4;
+}
+
+.controller #prev{
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.controller #play{
+    width: 54px;
+    height: 54px;
+    position: absolute;
+    left: 75px;
+    cursor: pointer;
+}
+
+.controller #next{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    right: 0px;
+    cursor: pointer;
+}
+
+
+
+
+/*控制栏进度条*/
+.progressBar #roundB{
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    position: absolute;
+    background-color: rgba(255,255,255,1.0);
+    left: 300px;
+    top: 26px;
+    cursor: pointer;
+    z-index: 4;
+}
+
+.progressBar #currentB{
+    height: 2px;
+    width: 0px;
+    background-color: rgba(255,255,255,1.0);
+    position: absolute;
+    left: 300px;
+    cursor: pointer;
+    z-index: 3;
+}
+.progressBar #cacheB{
+    height: 2px;
+    width: 0px;
+    background-color: rgba(255,255,255,0.3);
+    position: absolute;
+    left: 300px;
+    cursor: pointer;
+    z-index: 2;
+}
+.progressBar #totalB{
+    height: 2px;
+    width: 600px;
+    background-color: rgba(255,255,255,0.2);
+    position: absolute;
+    left: 300px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+
+
+
+/*歌曲显示信息*/
+.information{
+    color:#FFFFFF;
+    position: absolute;
+    top: 8px;
+    font-size: 14px;
+}
+
+.information #songNS{
+    position: absolute;
+    left: 300px;
+    width: 500px;
+}
+
+.information #timeCT{
+    position: absolute;
+    left: 830px;
+}
+
+
+
+
+/*音量调节*/
+.volume img{
+    width:20px;
+    height: 20px;
+    position: absolute;
+    left: 1050px;
+    top:20px;
+}
+.volume #roundV{
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    position: absolute;
+    background-color: rgba(255,255,255,1.0);
+    left: 1180px;
+    top: 26px;
+    cursor: pointer;
+    z-index: 3;
+}
+.volume #currentV{
+    height: 2px;
+    width: 100px;
+    background-color: rgba(255,255,255,1.0);
+    position: absolute;
+    left: 1080px;
+    cursor: pointer;
+    z-index: 2;
+}
+.volume #totalV{
+    height: 2px;
+    width: 100px;
+    background-color: rgba(255,255,255,0.2);
+    position: absolute;
+    left: 1080px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.switch{
+    position: absolute;
+    left: 1250px;
+    top: 20px;
+    cursor: pointer;
+    z-index: 4;
+}
+
+#frame {
+    position: absolute;
+    left: 0px;
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgba(255,255,255,1.0);
+}
+
+#word{
+    position: absolute;
+    left: 3px;
+    top: -1px;
+    font-size: 16px;
+    color: rgba(255,255,255,1.0);
+}

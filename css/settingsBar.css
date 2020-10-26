@@ -1,0 +1,38 @@
+.SettingsBar {
+    height: 60px;
+    background-color: #1eacda;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 4;
+}
+
+.SettingsBar #logo {
+    margin-left: 23px;
+}
+
+.SettingsBar .searchBar{
+    width: 296px;
+    height: 34px;
+    margin-right: 23px;
+    position: relative;
+}
+
+.SettingsBar .searchBar input{
+    width: 296px;
+    height: 34px;
+    border-radius: 17px;
+    border: 0px;
+    background: rgba(255, 255, 255, 0.45);
+    text-indent: 15px;
+    outline: none;
+    /*outline为none时，点击不会出现边框*/
+}
+
+.SettingsBar .searchBar img{
+    left:265px;
+    top:8px;
+    position: absolute;
+    cursor: pointer;
+}
